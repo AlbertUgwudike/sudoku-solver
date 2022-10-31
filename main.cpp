@@ -61,29 +61,18 @@ int main() {
 
   cout << "=================== Question 4 ===================\n\n";
 
-  load_board("easy.dat", board);
-  if (solve_board(board)) {
-    cout << "The 'easy' board has a solution:\n";
-    display_board(board);
-  } else {
-    cout << "A solution cannot be found.\n";
-  }
-  cout << '\n';
-
-  load_board("medium.dat", board);
-  if (solve_board(board)) {
-    cout << "The 'medium' board has a solution:\n";
-    display_board(board);
-  } else {
-    cout << "A solution cannot be found.\n";
-  }
-  cout << '\n';
-
-  // write more tests
+  solve_board_file("easy.dat");
+  solve_board_file("medium.dat");
+  solve_board_file("mystery1.dat");
+  solve_board_file("mystery2.dat");
+  solve_board_file("mystery3.dat");
+  solve_board_file("empty.dat");
+  solve_board_file("nimbus.dat");
 
   // cout << "=================== Question 5 ===================\n\n";
+
 
   // // write more tests
 
   return 0;
-}
+}      
