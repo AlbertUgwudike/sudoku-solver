@@ -1,1 +1,170 @@
-Summarise your findings here (see specification).
+
+
+    For the purpose of this exercise I defined the 'difficulty'
+    of a sudoku board as the total number of re-guesses required to
+    solve it.
+
+    My algorithm implements recursive backtracking and selects which
+    cell to attmept next by considering the number of possible valid
+    entries for each empty cell and choosing the cell with the fewest
+    possibilities. For instances where there are multiple cells with
+    the minimum number of possibilities, my algorithm chooses the first
+    (left-right, top-bottom). This selection strategy is not exepected
+    to influence performance on average as I have assumed that
+    optimal selections are uniformly distributed within the
+    algorithm's selection-space.
+
+    The re-guess counts for the problem boards provided are as follows
+
+    FILE           re-guess count
+    ------------   --------------
+    easy.dat       24
+    medium.dat     42
+    mystery1.dat   103
+    mystery2.dat   ---
+    mystery3.dat   262
+
+
+    Assuming the aforementioned hypothesis is correct, these
+    conclusions follow:
+
+    mystery1.dat contains the HARD difficulty board.
+    mystery3.dat contains the EXTERMELY HARD difficulty board.
+    mystery2.dat contians the IMPOSSIBLE board.
+
+
+    Interesting notes  -----------------------------------------------
+
+    A small modification to my program (commented out) enables futher
+    solutions for a given board to be discovered. I determined that
+    the solutions detailed herein are the sole solutions. Therefore,
+    for this exercise, sparsity of soliutions is a poor measure of
+    puzzle difficulty.
+
+    
+    Program output ---------------------------------------------------
+
+    The output of my program when applied to the given problem boards
+    is as follows.
+
+    ----------------------------------
+    Loading Sudoku board from file 'easy.dat'... Success!
+
+    24 backtracks attempted!
+
+    easy.dat has a solution:
+        1   2   3   4   5   6   7   8   9   
+      +===========+===========+===========+
+    A | 6 : 9 : 7 | 1 : 2 : 8 | 3 : 4 : 5 |
+      +---+---+---+---+---+---+---+---+---+
+    B | 2 : 4 : 1 | 6 : 5 : 3 | 8 : 9 : 7 |
+      +---+---+---+---+---+---+---+---+---+
+    C | 5 : 3 : 8 | 4 : 9 : 7 | 2 : 6 : 1 |
+      +===========+===========+===========+
+    D | 7 : 1 : 4 | 2 : 6 : 9 | 5 : 8 : 3 |
+      +---+---+---+---+---+---+---+---+---+
+    E | 8 : 6 : 5 | 3 : 7 : 1 | 4 : 2 : 9 |
+      +---+---+---+---+---+---+---+---+---+
+    F | 3 : 2 : 9 | 8 : 4 : 5 | 1 : 7 : 6 |
+      +===========+===========+===========+
+    G | 1 : 7 : 6 | 5 : 8 : 2 | 9 : 3 : 4 |
+      +---+---+---+---+---+---+---+---+---+
+    H | 4 : 8 : 3 | 9 : 1 : 6 | 7 : 5 : 2 |
+      +---+---+---+---+---+---+---+---+---+
+    I | 9 : 5 : 2 | 7 : 3 : 4 | 6 : 1 : 8 |
+      +===========+===========+===========+
+    ----------------------------------
+    ----------------------------------
+    Loading Sudoku board from file 'medium.dat'... Success!
+
+    42 backtracks attempted!
+
+    medium.dat has a solution:
+        1   2   3   4   5   6   7   8   9   
+      +===========+===========+===========+
+    A | 8 : 2 : 3 | 9 : 7 : 1 | 4 : 6 : 5 |
+      +---+---+---+---+---+---+---+---+---+
+    B | 7 : 4 : 5 | 8 : 6 : 3 | 1 : 2 : 9 |
+      +---+---+---+---+---+---+---+---+---+
+    C | 9 : 1 : 6 | 2 : 4 : 5 | 8 : 7 : 3 |
+      +===========+===========+===========+
+    D | 5 : 9 : 4 | 6 : 8 : 2 | 3 : 1 : 7 |
+      +---+---+---+---+---+---+---+---+---+
+    E | 6 : 3 : 2 | 7 : 1 : 4 | 5 : 9 : 8 |
+      +---+---+---+---+---+---+---+---+---+
+    F | 1 : 7 : 8 | 3 : 5 : 9 | 2 : 4 : 6 |
+      +===========+===========+===========+
+    G | 3 : 6 : 1 | 5 : 2 : 7 | 9 : 8 : 4 |
+      +---+---+---+---+---+---+---+---+---+
+    H | 4 : 5 : 7 | 1 : 9 : 8 | 6 : 3 : 2 |
+      +---+---+---+---+---+---+---+---+---+
+    I | 2 : 8 : 9 | 4 : 3 : 6 | 7 : 5 : 1 |
+      +===========+===========+===========+
+    ----------------------------------
+    ----------------------------------
+    Loading Sudoku board from file 'mystery1.dat'... Success!
+
+    103 backtracks attempted!
+
+    mystery1.dat has a solution:
+        1   2   3   4   5   6   7   8   9   
+      +===========+===========+===========+
+    A | 8 : 1 : 9 | 7 : 4 : 6 | 2 : 5 : 3 |
+      +---+---+---+---+---+---+---+---+---+
+    B | 5 : 2 : 3 | 8 : 1 : 9 | 4 : 6 : 7 |
+      +---+---+---+---+---+---+---+---+---+
+    C | 7 : 6 : 4 | 2 : 3 : 5 | 1 : 8 : 9 |
+      +===========+===========+===========+
+    D | 6 : 5 : 8 | 9 : 7 : 1 | 3 : 4 : 2 |
+      +---+---+---+---+---+---+---+---+---+
+    E | 4 : 7 : 2 | 5 : 6 : 3 | 9 : 1 : 8 |
+      +---+---+---+---+---+---+---+---+---+
+    F | 9 : 3 : 1 | 4 : 8 : 2 | 6 : 7 : 5 |
+      +===========+===========+===========+
+    G | 1 : 8 : 6 | 3 : 2 : 7 | 5 : 9 : 4 |
+      +---+---+---+---+---+---+---+---+---+
+    H | 3 : 9 : 7 | 6 : 5 : 4 | 8 : 2 : 1 |
+      +---+---+---+---+---+---+---+---+---+
+    I | 2 : 4 : 5 | 1 : 9 : 8 | 7 : 3 : 6 |
+      +===========+===========+===========+
+    ----------------------------------
+    ----------------------------------
+    Loading Sudoku board from file 'mystery2.dat'... Success!
+
+    548 backtracks attempted!
+
+    A solution could not be found.
+
+    ----------------------------------
+    ----------------------------------
+    Loading Sudoku board from file 'mystery3.dat'... Success!
+
+    262 backtracks attempted!
+
+    mystery3.dat has a solution:
+        1   2   3   4   5   6   7   8   9   
+      +===========+===========+===========+
+    A | 9 : 1 : 4 | 8 : 7 : 3 | 5 : 6 : 2 |
+      +---+---+---+---+---+---+---+---+---+
+    B | 6 : 2 : 8 | 5 : 1 : 4 | 3 : 7 : 9 |
+      +---+---+---+---+---+---+---+---+---+
+    C | 7 : 3 : 5 | 6 : 2 : 9 | 1 : 4 : 8 |
+      +===========+===========+===========+
+    D | 3 : 6 : 7 | 1 : 8 : 5 | 2 : 9 : 4 |
+      +---+---+---+---+---+---+---+---+---+
+    E | 5 : 8 : 1 | 4 : 9 : 2 | 7 : 3 : 6 |
+      +---+---+---+---+---+---+---+---+---+
+    F | 4 : 9 : 2 | 7 : 3 : 6 | 8 : 5 : 1 |
+      +===========+===========+===========+
+    G | 8 : 4 : 9 | 2 : 5 : 7 | 6 : 1 : 3 |
+      +---+---+---+---+---+---+---+---+---+
+    H | 1 : 5 : 3 | 9 : 6 : 8 | 4 : 2 : 7 |
+      +---+---+---+---+---+---+---+---+---+
+    I | 2 : 7 : 6 | 3 : 4 : 1 | 9 : 8 : 5 |
+      +===========+===========+===========+
+    ----------------------------------
+    
+
+
+
+    

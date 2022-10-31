@@ -67,7 +67,9 @@ int main() {
   solve_board_file("mystery2.dat");
   solve_board_file("mystery3.dat");
   solve_board_file("empty.dat");
-  solve_board_file("nimbus.dat");
+  solve_board_file("diagonal.dat");
+  solve_board_file("singular.dat");
+  solve_board_file("contradiction.dat");
 
   // cout << "=================== Question 5 ===================\n\n";
 
