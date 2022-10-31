@@ -21,7 +21,7 @@
     easy.dat       24
     medium.dat     42
     mystery1.dat   103
-    mystery2.dat   ---
+    mystery2.dat   548 (no solution)
     mystery3.dat   262
 
 
