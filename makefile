@@ -1,11 +1,18 @@
-sudoku: main.o sudoku.o
-	g++ main.o sudoku.o -o sudoku
+sudoku: main.o sudoku.o utility.o
+	g++ main.o sudoku.o utility.o -o sudoku
+	make clean
 
-main.o: main.cpp sudoku.h
-	g++ -c main.cpp
+main.o: source/main.cpp headers/sudoku.h
+	g++ -c source/main.cpp
 
-sudoku.o: sudoku.cpp
-	g++ -c -g sudoku.cpp
+utility.o: source/utility.cpp
+	g++ -c -g source/utility.cpp
+
+sudoku.o: source/sudoku.cpp
+	g++ -c -g source/sudoku.cpp
+
+clear:
+	$(RM) *.o sudoku
 
 clean:
-	$(RM) *.o sudoku
+	$(RM) *.o
